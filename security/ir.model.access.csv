@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payment_transaction_user,payment.transaction.user,model_payment_transaction,payment_transaction_user,1,0,0,0
+access_payment_transaction_manager,payment.transaction.manager,model_payment_transaction,payment_transaction_manager,1,1,1,1
+access_knet_configuration_user,knet.configuration.user,model_knet_configuration,knet_configuration_user,1,0,0,0
+access_knet_configuration_manager,knet.configuration.manager,model_knet_configuration,knet_configuration_manager,1,1,1,1

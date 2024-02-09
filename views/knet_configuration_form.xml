@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+
+        <!-- KNET Configuration Form View -->
+        <record id="view_knet_configuration_form" model="ir.ui.view">
+            <field name="name">knet.configuration.form</field>
+            <field name="model">knet.configuration</field>
+            <field name="arch" type="xml">
+                <form string="KNET Configuration">
+                    <sheet>
+                        <group>
+                            <field name="merchant_id" string="Merchant ID" required="1"/>
+                            <field name="secret_key" string="Secret Key" required="1"/>
+                            <field name="sandbox_mode" string="Sandbox Mode"/>
+                        </group>
+                        <group string="KNET Payment Acquirer Settings">
+                            <field name="payment_acquirer_id" domain="[('provider', '=', 'knet')]" context="{'default_provider': 'knet'}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- KNET Configuration Action -->
+        <record id="action_knet_configuration" model="ir.actions.act_window">
+            <field name="name">KNET Configuration</field>
+            <field name="res_model">knet.configuration</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_knet_configuration_form"/>
+        </record>
+
+        <!-- KNET Configuration Menu Item -->
+        <menuitem id="menu_knet_configuration"
+                  name="KNET Configuration"
+                  parent="base.menu_payment"
+                  action="action_knet_configuration"
+                  sequence="10"/>
+
+    </data>
+</odoo>
